@@ -66,3 +66,4 @@ public class DatabaseConnection {
 
 // Vi har skapat en create databaseconnectionifnotexists
 // funktion för att skapa vår databas och om det inte lyckas eller den redan finns kastar vi en exception
+// Det var det första vi kom på
