@@ -18,6 +18,4 @@ public class DatabaseConfig {
     public static String getDbDialect(){
         return dotenv.get("DB_DIALECT");
     }
-
-
 }
