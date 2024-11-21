@@ -1,5 +1,6 @@
 package se.demo;
 
+import se.demo.config.DatabaseConfig;
 import java.sql.*;
 import java.util.Scanner;
 
