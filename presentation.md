@@ -1,5 +1,5 @@
 # Gruppuppgift: Refaktorering
-Ali!!, Johan, Kalid, Angelica, Erik
+Ali, Johan, Kalid, Angelica, Erik
 Vi började med att kolla igenom Main-koden som vi fått och försökte identifiera problemen.
 - Oläsbar
 - Nästlade villkor
@@ -37,3 +37,4 @@ Under grupparbetets gång så använde vi oss av CodeWithMe-funktionen i Intelli
 Koden innehöll många nästlade if-satser som gör att logiken blir svår att följa och underhålla. För att förbättra detta använde vi oss
 av en switch och metoder istället.
 
+//
