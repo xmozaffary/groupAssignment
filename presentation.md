@@ -1,5 +1,6 @@
 # Gruppuppgift: Refaktorering
-Ali, Johan, Kalid, Angelica, Erik
+# Ali, Johan, Kalid, Angelica, Erik
+
 Vi började med att kolla igenom Main-koden som vi fått och försökte identifiera problemen.
 - Oläsbar
 - Nästlade villkor
