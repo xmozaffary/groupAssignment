@@ -1,6 +1,8 @@
 package se.demo.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+
 import java.sql.Timestamp;
 
 
@@ -14,7 +16,8 @@ public class Todo {
     @Column(nullable = false)
     private String description;
 
-    @Column(nullable = false, updatable = false, insertable = false)
+    @CreationTimestamp
+    @Column(nullable = false)
     private Timestamp createdAt;
 
     @Column(nullable = false)

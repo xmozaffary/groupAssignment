@@ -42,15 +42,15 @@ public class MenuSystem {
                     System.out.println("Avsluta");
                     return;
                 }
-                default -> System.out.printf("Invalid choice. Please try again.");
+                default -> System.out.printf("Ogiltigt val. Försök igen.");
             }
         }
     }
 
     private void addTodo(){
-        System.out.println("Ange todo-beskrivning: ");
+        System.out.print("Ange todo-beskrivning: ");
         String description = scanner.nextLine();
-        Todo todo = new Todo(description);
+        Todo todo = new Todo(description, false);
         todoService.addTodo(todo);
         System.out.println("Todo tillagd framgångsrikt!");
     }
