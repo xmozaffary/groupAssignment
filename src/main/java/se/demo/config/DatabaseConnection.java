@@ -1,11 +1,7 @@
 package se.demo.config;
 
-
-
-
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import se.demo.config.DatabaseConfig;
 import se.demo.entity.Todo;
 
 import java.sql.Connection;
@@ -19,7 +15,6 @@ public class DatabaseConnection {
     public SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
-                /* Attempt to create the database if it doesn't exist */
                 createDatabaseIfNotExists();
 
                 Configuration configuration = new Configuration();
@@ -38,9 +33,10 @@ public class DatabaseConnection {
                 e.printStackTrace();
             }
         }
-
         return sessionFactory;
     }
+
+
     private void createDatabaseIfNotExists() throws SQLException {
         String url = DatabaseConfig.getDbUrl();
         String dbName = "todo_db";
