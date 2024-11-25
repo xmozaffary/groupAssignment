@@ -31,5 +31,4 @@ public class TodoService {
     public void deleteTodo(Todo todo){
         todoDAO.delete(todo);
     }
-
 }

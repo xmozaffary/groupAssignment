@@ -76,7 +76,6 @@ public class MenuSystem {
         }
     }
 
-
     private void updateTodo(){
         viewAllTodo();
         System.out.print("Ange ID för todo att markera som klar: ");
