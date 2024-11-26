@@ -2,7 +2,6 @@ package se.demo.service;
 
 import se.demo.dao.TodoDAO;
 import se.demo.entity.Todo;
-
 import java.util.List;
 import java.util.Optional;
 
