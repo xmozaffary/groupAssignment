@@ -18,10 +18,10 @@ public class MySQlConnection implements DatabaseConnection {
                 createDatabaseIfNotExists();
 
                 Configuration configuration = new Configuration();
-                configuration.setProperty("hibernate.connection.url", DatabaseConfig.getDbUrl());
-                configuration.setProperty("hibernate.connection.username", DatabaseConfig.getDbUsername());
-                configuration.setProperty("hibernate.connection.password", DatabaseConfig.getDbPassword());
-                configuration.setProperty("hibernate.dialect", DatabaseConfig.getDbDialect());
+                configuration.setProperty("hibernate.connection.url", DatabaseConfig.getMySqlDbUrl());
+                configuration.setProperty("hibernate.connection.username", DatabaseConfig.getMySqlUsername());
+                configuration.setProperty("hibernate.connection.password", DatabaseConfig.getMySqlPassword());
+                configuration.setProperty("hibernate.dialect", DatabaseConfig.getMySQlDialect());
                 configuration.setProperty("hibernate.hbm2ddl.auto", "update");
                 configuration.setProperty("hibernate.show_sql", "true");
 
@@ -37,10 +37,10 @@ public class MySQlConnection implements DatabaseConnection {
     }
 
     private void createDatabaseIfNotExists() throws SQLException {
-        String url = DatabaseConfig.getDbUrl();
+        String url = DatabaseConfig.getMySqlDbUrl();
         String dbName = "todo_db";
-        String username = DatabaseConfig.getDbUsername();
-        String password = DatabaseConfig.getDbPassword();
+        String username = DatabaseConfig.getMySqlUsername();
+        String password = DatabaseConfig.getMySqlPassword();
 
         try (Connection connection = DriverManager.getConnection(url, username, password);
              Statement statement = connection.createStatement()) {

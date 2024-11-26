@@ -10,8 +10,7 @@ Vi började med att kolla igenom Main-koden som vi fått och försökte identifi
 Koden var otydlig och svår att läsa samt att det var mycket överflödig kod. Detta gör det svårare att underhålla och felsöka.
 Det första vi gjorde var att separera ansvar och skapa olika klasser. Vi skapade också en env.fil.
 Databaskonfigurationen var hårdkodad i Main så vi skapade DatabaseConfig som används för att hämta databasinställningar från
-våran env.fil (dotenv). Detta ökar säkerheten genom att hålla känslig information utanför källkoden. 
-
+våran env.fil (dotenv). Detta ökar säkerheten genom att hålla känslig information utanför källkoden.
 Sedan skapade vi DatabaseConnection som används för att hantera databasanslutningen. Vi använde oss av hibernate (ORM) istället
 för jdbc. Med hibernate kan man arbeta med databaser genom att använda Java-objekt istället för att skriva SQL-kod samt att
 det finns möjligheter att arbeta med andra typer av databaser i framtiden, det är enklare att underhålla. Denna klassen
@@ -38,4 +37,23 @@ Under grupparbetets gång så använde vi oss av CodeWithMe-funktionen i Intelli
 Koden innehöll många nästlade if-satser som gör att logiken blir svår att följa och underhålla. För att förbättra detta använde vi oss
 av en switch och metoder istället.
 
-//
+# Uppdaterade krav - Val av databas vid start  H2/MySql
+
+Vi skapade ett interface(DatabaseConnection) med en metod getSessionFactory. Vi skapade sedan H2Connection som fungerar på samma sätt som MySqlConnection.
+Vi skapade sedan DatabaseConnectionFactory med en metod som heter createDatabaseConnection med en int parameter(int choice) och
+om den får ettan så returnerar den en instans av MySqlConnection och om den får tvåan returnerar den instans H2Connection. 
+
+Vi gjorde ett nytt menysystem i Main för att man ska kunna välja databas vid start av applikationen.
+Vi la till H2 dependency i pom-filen.
+Vi utökade env.filen med H2-variabler.
+
+# Problem
+
+SKRIV INTE VANLIGA // KOMMENTARER I ENV.FILEN!!!
+
+
+Glömde att lägga till dependency för H2
+
+Felstavning jättemycket
+
+Att komma på en lösning

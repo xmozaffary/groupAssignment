@@ -9,14 +9,7 @@ public class DatabaseConnectionFactory {
             case 2 -> {
                 return new H2Connection();
             }
-            default -> {
-                System.out.println("Ogiltligt val. Försök igen.");
-                return null;
-            }
+            default -> throw new IllegalStateException("Ogiltigt val: " + choice);
         }
     }
 }
-
-
-
-
