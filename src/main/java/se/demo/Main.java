@@ -5,31 +5,23 @@ import se.demo.config.DatabaseConnectionFactory;
 import se.demo.dao.TodoDAO;
 import se.demo.dao.impl.TodoDAOImpl;
 import se.demo.service.TodoService;
+import se.demo.ui.ChoiceDatabase;
 import se.demo.ui.MenuSystem;
 
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("\n╔════════════════════════════╗");
-        System.out.println("║        Välja databas       ║");
-        System.out.println("╠════════════════════════════╣");
-        System.out.println("║ 1. MySql                   ║");
-        System.out.println("║ 2. H2                      ║");
-        System.out.println("╚════════════════════════════╝");
-        System.out.print("Välj ett alternativ: ");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-
-
+       ChoiceDatabase choiceDatabase = new ChoiceDatabase();
+        int choice = choiceDatabase.choiceDatabase();
         DatabaseConnection databaseConnection = DatabaseConnectionFactory.createDatabaseConnection(choice);
-
+        System.out.println(databaseConnection.getSessionFactory());
+        if(databaseConnection.getSessionFactory() == null){
+            System.out.println("Database connection failed!");
+            return;
+        }
         TodoDAO todoDAO = new TodoDAOImpl(databaseConnection.getSessionFactory());
         TodoService todoService = new TodoService(todoDAO);
-
         MenuSystem menuSystem = new MenuSystem(todoService);
         menuSystem.displayMenu();
     }
